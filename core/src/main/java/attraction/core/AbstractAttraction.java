@@ -10,6 +10,8 @@ public abstract class AbstractAttraction {
     private static double maxSpeed;                            // Max speed of a ride in km/h
     private static int loops;                                  // Amount of loops
     private static double heightRequired;                      // Required height to ride the attraction
+    private static int loadTime;                               // Average time required to load a ride vehicle
+    private static int unloadTime;                             // Average time required to unload a ride vehicle
 
     // Live statistics
     private int passengersInLine;                               // Number of passengers waiting to board the ride
