@@ -1,0 +1,55 @@
+{
+    "passengersInLine": 32347,
+    "stage": "DOWN",
+    "faultMessage": "Safety fault detected with vehicle 4",
+    "rideVehicles": [
+        {
+            "seatsOccupied": 8,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 0,
+            "stage": "OUT_OF_ORDER"
+        },
+        {
+            "seatsOccupied": 0,
+            "stage": "LOADING"
+        },
+        {
+            "seatsOccupied": 7,
+            "stage": "IDLE"
+        },
+        {
+            "seatsOccupied": 8,
+            "stage": "BREAKDOWN"
+        },
+        {
+            "seatsOccupied": 10,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 7,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 0,
+            "stage": "OUT_OF_ORDER"
+        },
+        {
+            "seatsOccupied": 8,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 12,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 7,
+            "stage": "IN_PROGRESS"
+        },
+        {
+            "seatsOccupied": 0,
+            "stage": "OUT_OF_ORDER"
+        }
+    ]
+}
