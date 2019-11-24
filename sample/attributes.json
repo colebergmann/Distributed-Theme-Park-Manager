@@ -1,0 +1,12 @@
+{
+    "attractionName": "Space Mountain",
+    "attractionId": 100,
+    "rideDuration": 120,
+    "passengersPerCarPerHour": 180,
+    "passengersPerCar": 12,
+    "maxSpeed": 56.0,
+    "loops": 0,
+    "heightRequired": 1.02,
+    "loadTime": 10,
+    "vehicleCount": 12
+}

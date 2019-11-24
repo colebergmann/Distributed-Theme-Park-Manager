@@ -8,3 +8,7 @@ A fault randomly occurs on some ticks, which changes a vehicle status to BROKEN 
 A POST request to /actions/resolvefaults must be made to change OUT_OF_ORDER vehicles to "STORED" and to return the attraction status to OPERATIONAL once again.
 
 A POST request can be made to /actions/addvehicle to move a vehicle from storage to the track to increase ride capacity (changes status from STORED to IDLE)
+
+Run this by passing in [sample-config.yml](sample-config.yml) as a command line argument
+
+To test: `java -jar target/rollercoaster-1.0.jar sample-config.yml`

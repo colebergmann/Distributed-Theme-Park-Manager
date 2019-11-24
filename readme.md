@@ -4,9 +4,9 @@
 This system is composed of two main components: several independent attractions and one management server. Each attraction does not save any state and only knows it's current operating status. The management server polls every attraction frequently to collect information and generate conclusions from it.
 
 ## Attraction Overview
-AttractionAttributes stores all the static ride data (id, name, # vehicles, passengers/hr, etc). This is accessed at /attributes
+AttractionAttributes stores all the static ride data (id, name, # vehicles, passengers/hr, etc). This is accessed at [/attributes](sample/attributes.json)
 
-AttractionStatus stores all the live ride information (array of Vehicles, status message, passengers in line, etc). This is accessed at /status
+AttractionStatus stores all the live ride information (array of Vehicles, status message, passengers in line, etc). This is accessed at [/status](sample/status.json)
 
 
 The core of every attraction is the singleton AbstractAttractionDriver class. This is responsible for basically everything in the attraction - it instantiates AttractionAttributes from flatfile, stores AttractionStatus, and implements all of the ride simulation mechanics. Since we don't have actual ride sensors to gather data from, all of the ride data is simulated in this class.
