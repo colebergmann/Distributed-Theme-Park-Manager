@@ -10,10 +10,10 @@ public class Application {
 
     public static void main(String[] args) {
         System.out.println("[ParkManager] Starting");
-        //SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application.class, args);
 
         //AttractionEntry entry = new AttractionEntry("http://localhost:8000");
         ManagerDriver.getInstance().addAttraction("http://localhost:8000");
-        ManagerDriver.getInstance().addAttraction("http://localhost:8001");
+        //ManagerDriver.getInstance().addAttraction("http://localhost:8001");
     }
 }

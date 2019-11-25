@@ -29,7 +29,7 @@ public class RCDriver extends AbstractAttractionDriver {
             }
         }
         status.setStage(AttractionStage.OPERATIONAL);
-        status.setPassengersInLine((int) Math.round(Math.random() * 8192 + 1024));
+        status.setPassengersInLine((int) Math.round(Math.random() * 200 + 200));
         tickPaused = false;
     }
 
@@ -38,7 +38,7 @@ public class RCDriver extends AbstractAttractionDriver {
         if (tickPaused) return;
 
         // Adjust waiting passengers
-        int pcount = status.getPassengersInLine() -512 + (int) Math.round(Math.random() * 2048);
+        int pcount = status.getPassengersInLine() -200 + (int) Math.round(Math.random() * 400);
         status.setPassengersInLine(pcount);
         //System.out.println("[RCDriver] New passenger count " + pcount);
 
@@ -59,7 +59,7 @@ public class RCDriver extends AbstractAttractionDriver {
         Vehicle loadingVehicle = vehicles.get(j);
         loadingVehicle.setStage(VehicleStage.LOADING);
         loadingVehicle.setSeatsOccupied(0);
-        loadingVehicle.setUuid("");
+        loadingVehicle.setUuid(null);
 
         // Setup the next car to be idle
         j = getNextValidVehicleIndex(j);
@@ -88,6 +88,7 @@ public class RCDriver extends AbstractAttractionDriver {
             if (vehicles.get(i).getStage() == VehicleStage.BREAKDOWN) {
                 vehicles.get(i).setStage(VehicleStage.OUT_OF_ORDER);
                 vehicles.get(i).setSeatsOccupied(0);
+                vehicles.get(i).setUuid(null);
                 RCDriver.getInstance().status.setFaultMessage("Some stored vehicle(s) need attention");
                 RCDriver.getInstance().status.setStage(AttractionStage.DEGRADED);
                 RCDriver.getInstance().tickPaused = false;
@@ -101,7 +102,7 @@ public class RCDriver extends AbstractAttractionDriver {
         for (int i = 0; i < vehicles.size(); i++) {
             if (vehicles.get(i).getStage() == VehicleStage.OUT_OF_ORDER) {
                 vehicles.get(i).setStage(VehicleStage.STORED);
-                RCDriver.getInstance().status.setFaultMessage("");
+                RCDriver.getInstance().status.setFaultMessage(null);
                 RCDriver.getInstance().status.setStage(AttractionStage.OPERATIONAL);
             }
         }
