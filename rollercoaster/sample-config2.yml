@@ -1,26 +1,26 @@
-attractionName: "Space Mountain"
-attractionId: "SPACEMTN"
+attractionName: "Thunder Mountain"
+attractionId: "THUNDERMTN"
 
 # Total number of vehicles for this ride
-vehicleCount: 12
+vehicleCount: 8
 
 # Ride duration in seconds
-rideDuration: 120
+rideDuration: 145
 
 # Amount of passengers this ride can support using one ride vehicle per hour
-passengersPerCarPerHour: 180
+passengersPerCarPerHour: 165
 
 # Amount of passengers each car can handle
-passengersPerCar: 12
+passengersPerCar: 30
 
 # Max ride speed in km/h
-maxSpeed: 56
+maxSpeed: 80
 
 # Amount of loops
-loops: 0
+loops: 2
 
 # Height requirement for this ride (in meters)
-heightRequired: 1.02
+heightRequired: 1.08
 
 # Amount of time to load/unload a ride vehicle on average (in seconds)
-loadTime: 10
+loadTime: 40

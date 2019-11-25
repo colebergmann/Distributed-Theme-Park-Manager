@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Tayto-Park-Engineers.iml" filepath="$PROJECT_DIR$/.idea/Tayto-Park-Engineers.iml" />
       <module fileurl="file://$PROJECT_DIR$/attraction/attraction.iml" filepath="$PROJECT_DIR$/attraction/attraction.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manager/manager.iml" filepath="$PROJECT_DIR$/manager/manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parkmanager/parkmanager.iml" filepath="$PROJECT_DIR$/parkmanager/parkmanager.iml" />
       <module fileurl="file://$PROJECT_DIR$/rollercoaster/rollercoaster.iml" filepath="$PROJECT_DIR$/rollercoaster/rollercoaster.iml" />
     </modules>
   </component>

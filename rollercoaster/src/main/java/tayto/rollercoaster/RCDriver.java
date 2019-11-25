@@ -3,6 +3,7 @@ package tayto.rollercoaster;
 import tayto.core.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class RCDriver extends AbstractAttractionDriver {
     /*
@@ -48,6 +49,7 @@ public class RCDriver extends AbstractAttractionDriver {
                 vehicles.get(i).setStage(VehicleStage.IN_PROGRESS);
                 int ppc = attributes.getPassengersPerCar();
                 vehicles.get(i).setSeatsOccupied((int) Math.round(Math.random()* (ppc / 2) + ppc/2 ));
+                vehicles.get(i).setUuid(UUID.randomUUID().toString());
                 j = i;
                 break;
             }
@@ -57,6 +59,7 @@ public class RCDriver extends AbstractAttractionDriver {
         Vehicle loadingVehicle = vehicles.get(j);
         loadingVehicle.setStage(VehicleStage.LOADING);
         loadingVehicle.setSeatsOccupied(0);
+        loadingVehicle.setUuid("");
 
         // Setup the next car to be idle
         j = getNextValidVehicleIndex(j);
