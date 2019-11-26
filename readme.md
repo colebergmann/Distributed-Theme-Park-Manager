@@ -3,6 +3,11 @@
 ## System Overview
 This system is composed of two main components: several independent attractions and one management server. Each attraction does not save any state and only knows it's current operating status. The management server polls every attraction frequently to collect information and generate conclusions from it.
 
+## Park Manager Overview
+The Park Manager discovers attractions using Netflix Eureka and polls the attractions frequently to store their current state (and log changes). The PM supports both REST and GraphQL queries to get information about the attractions (more info on the [parkmanager](parkmanager) page).
+
+PM is also responsible for issuing commands to the individual attraction services.
+
 ## Attraction Overview
 AttractionAttributes stores all the static ride data (id, name, # vehicles, passengers/hr, etc). This is accessed at [/attributes](sample/attributes.json)
 
@@ -24,4 +29,3 @@ The key functions of AAD are:
 - resolveFaults(): This is called to "fix" all OUT_OF_ORDER vehicles and return them to storage with the other vehicles that are not currently running on the track
 
 - addVehicle(): Moves a vehicle from storage to the track
-

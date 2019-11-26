@@ -1,0 +1,122 @@
+{
+  "data": {
+    "attractions": [
+      {
+        "attributes": {
+          "attractionName": "Thunder Mountain",
+          "attractionId": "THUNDERMTN",
+          "rideDuration": 145,
+          "passengersPerCarPerHour": 165,
+          "passengersPerCar": 30,
+          "maxSpeed": 80,
+          "loops": 2,
+          "heightRequired": 1.08,
+          "loadTime": 40,
+          "vehicleCount": 8
+        },
+        "status": {
+          "stage": "DOWN",
+          "passengersInLine": 366,
+          "faultMessage": "Safety fault detected with vehicle 2",
+          "rideVehicles": [
+            {
+              "stage": "OUT_OF_ORDER"
+            },
+            {
+              "stage": "OUT_OF_ORDER"
+            },
+            {
+              "stage": "BREAKDOWN"
+            },
+            {
+              "stage": "IDLE"
+            },
+            {
+              "stage": "STORED"
+            },
+            {
+              "stage": "STORED"
+            },
+            {
+              "stage": "STORED"
+            },
+            {
+              "stage": "STORED"
+            }
+          ]
+        },
+        "events": [
+          "Executed action: dismissfault",
+          "Status changed from DOWN to DEGRADED at 2019/11/25 23:45 Fault code: Some stored vehicle(s) need attention",
+          "Status changed from DEGRADED to DOWN at 2019/11/25 23:45 Fault code: Safety fault detected with vehicle 2"
+        ],
+        "vehicleFillRate": 73,
+        "vehiclesInService": 1,
+        "vehiclesInStorage": 4,
+        "totalBrokenVehicles": 3
+      },
+      {
+        "attributes": {
+          "attractionName": "Space Mountain",
+          "attractionId": "SPACEMTN",
+          "rideDuration": 120,
+          "passengersPerCarPerHour": 180,
+          "passengersPerCar": 12,
+          "maxSpeed": 56,
+          "loops": 0,
+          "heightRequired": 1.02,
+          "loadTime": 10,
+          "vehicleCount": 12
+        },
+        "status": {
+          "stage": "DOWN",
+          "passengersInLine": 237,
+          "faultMessage": "Safety fault detected with vehicle 0",
+          "rideVehicles": [
+            {
+              "stage": "BREAKDOWN"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "IN_PROGRESS"
+            },
+            {
+              "stage": "LOADING"
+            },
+            {
+              "stage": "IDLE"
+            },
+            {
+              "stage": "STORED"
+            },
+            {
+              "stage": "STORED"
+            },
+            {
+              "stage": "STORED"
+            }
+          ]
+        },
+        "events": [],
+        "vehicleFillRate": 76,
+        "vehiclesInService": 8,
+        "vehiclesInStorage": 3,
+        "totalBrokenVehicles": 1
+      }
+    ]
+  }
+}

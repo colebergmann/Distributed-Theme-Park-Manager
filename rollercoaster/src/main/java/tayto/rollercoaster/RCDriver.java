@@ -39,6 +39,9 @@ public class RCDriver extends AbstractAttractionDriver {
 
         // Adjust waiting passengers
         int pcount = status.getPassengersInLine() -200 + (int) Math.round(Math.random() * 400);
+        if (pcount < 100) {
+            pcount = 200;
+        }
         status.setPassengersInLine(pcount);
         //System.out.println("[RCDriver] New passenger count " + pcount);
 

@@ -1,9 +1,8 @@
 package tayto.parkmanager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
+import tayto.core.AttractionDetails;
+
+import java.util.*;
 
 public class ManagerDriver {
     // Setup singleton class
@@ -16,7 +15,7 @@ public class ManagerDriver {
     }
 
     static int TICK_DELAY = 5;
-    HashMap<String, AttractionEntry> attractions;
+    public HashMap<String, AttractionEntry> attractions;
 
     public ManagerDriver() {
         attractions = new HashMap<>();
@@ -47,5 +46,13 @@ public class ManagerDriver {
             return;
         }
         attractions.put(id, attraction);
+    }
+
+    public Collection<AttractionDetails> getAttractionDetails() {
+        ArrayList<AttractionDetails> result = new ArrayList<>();
+        for (AttractionEntry entry : attractions.values()) {
+            result.add(entry.getDetails());
+        }
+        return result;
     }
 }

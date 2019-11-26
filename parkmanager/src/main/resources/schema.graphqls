@@ -1,0 +1,45 @@
+type Query {
+  attractions: [AttractionDetails!]!
+  attractionById(id: ID): AttractionDetails
+}
+
+
+
+type AttractionDetails {
+  attributes: AttractionAttributes
+  status: AttractionStatus
+
+  events: [String!]!
+
+  vehicleFillRate: Float
+  vehiclesInService: Int
+  vehiclesInStorage: Int
+  totalBrokenVehicles: Int
+
+  waitMins: Int
+}
+
+type AttractionAttributes {
+  attractionName: String
+  attractionId: String
+  rideDuration: Int
+  passengersPerCarPerHour: Int
+  passengersPerCar: Int
+  maxSpeed: Float
+  loops: Int
+  heightRequired: Float
+  loadTime: Int
+  vehicleCount: Int
+}
+
+type AttractionStatus {
+  passengersInLine: Int
+  stage: String
+  faultMessage: String
+  rideVehicles: [Vehicle!]!
+}
+
+type Vehicle {
+  seatsOccupied: Int
+  stage: String
+}

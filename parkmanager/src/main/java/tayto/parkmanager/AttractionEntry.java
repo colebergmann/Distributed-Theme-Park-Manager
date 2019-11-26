@@ -57,7 +57,7 @@ public class AttractionEntry {
             String logMessage = "Status changed from " + latestStatus.getStage() + " to " + newStatus.getStage() + " at " + stamp;
             if (newStatus.getFaultMessage() != null && !newStatus.getFaultMessage().equalsIgnoreCase("")) {
                 // add the fault code
-                logMessage += " - Fault code: \"" + newStatus.getFaultMessage() + "\"";
+                logMessage += " Fault code: " + newStatus.getFaultMessage();
             }
             events.add(logMessage);
         }
@@ -109,5 +109,18 @@ public class AttractionEntry {
         summary.setVehiclesInStorage(vehicleCount(new VehicleStage[]{VehicleStage.STORED}));
         summary.setWaitMins(waitMins());
         return summary;
+    }
+
+    public String performAction(String action) {
+        try {
+            RestTemplate template = new RestTemplate();
+            String requestUrl = endpoint + "/action/" + action;
+            String result = template.getForObject(requestUrl, String.class);
+            events.add("Executed action: " + action);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Unable to connect to remote";
+        }
     }
 }

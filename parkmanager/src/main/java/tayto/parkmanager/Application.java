@@ -14,6 +14,6 @@ public class Application {
 
         //AttractionEntry entry = new AttractionEntry("http://localhost:8000");
         ManagerDriver.getInstance().addAttraction("http://localhost:8000");
-        //ManagerDriver.getInstance().addAttraction("http://localhost:8001");
+        ManagerDriver.getInstance().addAttraction("http://localhost:8001");
     }
 }
