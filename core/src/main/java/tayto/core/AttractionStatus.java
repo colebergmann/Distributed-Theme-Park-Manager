@@ -14,7 +14,7 @@ public class AttractionStatus {
     public AttractionStatus() {
         passengersInLine = 0;
         stage = AttractionStage.CLOSED;
-        faultMessage = "";
+        faultMessage = null;
         rideVehicles = new ArrayList<>();
     }
 

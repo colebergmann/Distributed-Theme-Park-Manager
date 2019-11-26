@@ -1,10 +1,10 @@
 package tayto.core;
 
 public class Vehicle {
-    // Live statistics
-    // These are updated on the fly as the ride
-    private int seatsOccupied;                  // Amount of seats occupied
-    private VehicleStage stage;               // Current status of the vehicle
+    // Updated as the vehicle moves around the track
+    private int seatsOccupied;
+    private VehicleStage stage;
+    private String uuid;                // A unique ID assigned to a car every time it gets new passengers
 
     public Vehicle() {
         stage = VehicleStage.IDLE;
@@ -24,5 +24,13 @@ public class Vehicle {
 
     public void setStage(VehicleStage stage) {
         this.stage = stage;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }

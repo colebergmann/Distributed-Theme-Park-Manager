@@ -2,11 +2,13 @@ package tayto.rollercoaster;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
+@EnableEurekaClient
 public class Application {
     public static void main(String[] args) {
-        if (args.length != 1) {
+        if (args.length < 1) {
             System.out.println("Usage: rollercoaster.jar config.yml");
             System.exit(1);
         }

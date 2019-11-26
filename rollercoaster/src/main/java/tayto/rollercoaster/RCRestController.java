@@ -1,9 +1,13 @@
 package tayto.rollercoaster;
 
+import com.netflix.discovery.DiscoveryClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.web.bind.annotation.*;
 import tayto.core.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class RCRestController {
@@ -21,17 +25,17 @@ public class RCRestController {
     }
 
     // Handle incoming actions
-    @RequestMapping(value="/action/{action}",method=RequestMethod.POST)
+    @RequestMapping(value="/action/{action}",method=RequestMethod.GET)
     public String getResource(@PathVariable("action") String action) {
         if (action.equalsIgnoreCase("dismissfault")) {
             RCDriver.getInstance().dismissFault();
-            return "Faulty vehicles have been moved to storage";
+            return "success";
         } else if (action.equalsIgnoreCase("resolvefaults")) {
             RCDriver.getInstance().resolveFaults();
-            return "All faulty vehicles have been fixed";
+            return "success";
         } else if (action.equalsIgnoreCase("addvehicle")) {
             RCDriver.getInstance().addVehicle();
-            return "An available stored vehicle has been added";
+            return "success";
         }
         return "Unknown request. Valid commands are: dismissfault, resolvefaults, addvehicle. You requested: [" + action + "]";
     }

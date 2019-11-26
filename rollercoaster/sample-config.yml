@@ -1,5 +1,5 @@
 attractionName: "Space Mountain"
-attractionId: 100
+attractionId: "SPACEMTN"
 
 # Total number of vehicles for this ride
 vehicleCount: 12

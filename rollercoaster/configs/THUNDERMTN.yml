@@ -1,0 +1,26 @@
+attractionName: "Thunder Mountain"
+attractionId: "THUNDERMTN"
+
+# Total number of vehicles for this ride
+vehicleCount: 8
+
+# Ride duration in seconds
+rideDuration: 145
+
+# Amount of passengers this ride can support using one ride vehicle per hour
+passengersPerCarPerHour: 165
+
+# Amount of passengers each car can handle
+passengersPerCar: 30
+
+# Max ride speed in km/h
+maxSpeed: 80
+
+# Amount of loops
+loops: 2
+
+# Height requirement for this ride (in meters)
+heightRequired: 1.08
+
+# Amount of time to load/unload a ride vehicle on average (in seconds)
+loadTime: 40

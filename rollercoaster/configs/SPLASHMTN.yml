@@ -1,0 +1,26 @@
+attractionName: "Splash Mountain"
+attractionId: "SPLASHMTN"
+
+# Total number of vehicles for this ride
+vehicleCount: 18
+
+# Ride duration in seconds
+rideDuration: 228
+
+# Amount of passengers this ride can support using one ride vehicle per hour
+passengersPerCarPerHour: 140
+
+# Amount of passengers each car can handle
+passengersPerCar: 6
+
+# Max ride speed in km/h
+maxSpeed: 56
+
+# Amount of loops
+loops: 0
+
+# Height requirement for this ride (in meters)
+heightRequired: 0.8
+
+# Amount of time to load/unload a ride vehicle on average (in seconds)
+loadTime: 12

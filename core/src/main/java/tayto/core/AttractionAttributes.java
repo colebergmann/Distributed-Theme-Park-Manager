@@ -5,7 +5,7 @@ public class AttractionAttributes {
     // These facts are loaded in from a text file unique to each ride instance
 
     private String attractionName;
-    private int attractionId;
+    private String attractionId;
 
     private int rideDuration;                           // Total ride duration in seconds
     private int passengersPerCarPerHour;                // Amount of passengers one car can handle per hour
@@ -27,11 +27,11 @@ public class AttractionAttributes {
         this.attractionName = attractionName;
     }
 
-    public int getAttractionId() {
+    public String getAttractionId() {
         return attractionId;
     }
 
-    public void setAttractionId(int attractionId) {
+    public void setAttractionId(String attractionId) {
         this.attractionId = attractionId;
     }
 

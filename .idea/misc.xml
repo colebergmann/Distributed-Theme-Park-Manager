@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/core/pom.xml" />
         <option value="$PROJECT_DIR$/attraction/pom.xml" />
         <option value="$PROJECT_DIR$/rollercoaster/pom.xml" />
+        <option value="$PROJECT_DIR$/manager/pom.xml" />
+        <option value="$PROJECT_DIR$/parkmanager/pom.xml" />
       </list>
     </option>
   </component>

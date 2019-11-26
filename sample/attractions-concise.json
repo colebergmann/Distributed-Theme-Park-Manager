@@ -1,0 +1,36 @@
+{
+  "data": {
+    "attractions": [
+      {
+        "attributes": {
+          "attractionName": "Thunder Mountain",
+          "attractionId": "THUNDERMTN",
+          "maxSpeed": 80,
+          "loops": 2,
+          "heightRequired": 1.08
+        },
+        "status": {
+          "stage": "DOWN",
+          "passengersInLine": 366,
+          "faultMessage": "Safety fault detected with vehicle 2"
+        },
+        "vehicleFillRate": 73
+      },
+      {
+        "attributes": {
+          "attractionName": "Space Mountain",
+          "attractionId": "SPACEMTN",
+          "maxSpeed": 56,
+          "loops": 0,
+          "heightRequired": 1.02
+        },
+        "status": {
+          "stage": "DOWN",
+          "passengersInLine": 237,
+          "faultMessage": "Safety fault detected with vehicle 0"
+        },
+        "vehicleFillRate": 76
+      }
+    ]
+  }
+}
