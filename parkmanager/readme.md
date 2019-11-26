@@ -1,7 +1,7 @@
 # Park Manager Service
 The Park Manager Service is responsible for all communication to the attractions. Clients should not interact directly with the attractions and should instead interface with the PM.
 
-Services are discovered with Netflix Eureka.
+Services are automatically discovered with Netflix Eureka.
 
 ## REST Operations
 The following REST endpoints are supported:
@@ -85,5 +85,4 @@ Use the exact same query format to query a single attraction, but replace the fi
 
 
 ### todo:
-- Service discovery with Eureka
-- more ride suggestions
+- more ride suggestions?
