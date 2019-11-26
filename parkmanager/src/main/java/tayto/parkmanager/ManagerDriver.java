@@ -1,5 +1,8 @@
 package tayto.parkmanager;
 
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.shared.Application;
+import com.netflix.eureka.EurekaServerContextHolder;
 import tayto.core.AttractionDetails;
 
 import java.util.*;
@@ -16,9 +19,11 @@ public class ManagerDriver {
 
     static int TICK_DELAY = 5;
     public HashMap<String, AttractionEntry> attractions;
+    ArrayList<String> eurekaIds;
 
     public ManagerDriver() {
         attractions = new HashMap<>();
+        eurekaIds = new ArrayList<>();
 
         // Start timer to run tick() function every
         (new Timer()).scheduleAtFixedRate(
@@ -31,6 +36,7 @@ public class ManagerDriver {
 
     // Run this code repeatedly to update attractions
     private void tick() {
+        checkForNewEurekaInstances();
         for (AttractionEntry entry : attractions.values()) {
             entry.refreshStatus();
         }
@@ -39,6 +45,10 @@ public class ManagerDriver {
     public void addAttraction(String url) {
         // Create AttractionEntry
         AttractionEntry attraction = new AttractionEntry(url);
+
+        if (attraction.attributes == null) {
+            return;
+        }
 
         //Check to make sure we don't already have this attraction stored
         String id = attraction.attributes.getAttractionId();
@@ -55,4 +65,19 @@ public class ManagerDriver {
         }
         return result;
     }
+
+    public void checkForNewEurekaInstances() {
+        Application app = EurekaServerContextHolder.getInstance().getServerContext().getRegistry().getApplication("ATTRACTION");
+        if (app != null) {
+            // get the instances
+            for (InstanceInfo info : app.getInstances()) {
+                if (!eurekaIds.contains(info.getInstanceId())) {
+                    System.out.println("[ManagerDriver] Registered new Eureka instance with id " + info.getInstanceId() + " at " + info.getHomePageUrl());
+                    eurekaIds.add(info.getInstanceId());
+                    addAttraction(info.getHomePageUrl());
+                }
+            }
+        }
+    }
 }
+

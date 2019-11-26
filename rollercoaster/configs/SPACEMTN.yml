@@ -1,0 +1,26 @@
+attractionName: "Space Mountain"
+attractionId: "SPACEMTN"
+
+# Total number of vehicles for this ride
+vehicleCount: 12
+
+# Ride duration in seconds
+rideDuration: 120
+
+# Amount of passengers this ride can support using one ride vehicle per hour
+passengersPerCarPerHour: 180
+
+# Amount of passengers each car can handle
+passengersPerCar: 12
+
+# Max ride speed in km/h
+maxSpeed: 56
+
+# Amount of loops
+loops: 0
+
+# Height requirement for this ride (in meters)
+heightRequired: 1.02
+
+# Amount of time to load/unload a ride vehicle on average (in seconds)
+loadTime: 10

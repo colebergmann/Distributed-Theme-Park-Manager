@@ -1,1 +1,8 @@
 tayto/core/AttractionStatus.class
+tayto/core/AbstractAttractionDriver$1.class
+tayto/core/AttractionAttributes.class
+tayto/core/Vehicle.class
+tayto/core/VehicleStage.class
+tayto/core/AbstractAttractionDriver.class
+tayto/core/AttractionDetails.class
+tayto/core/AttractionStage.class

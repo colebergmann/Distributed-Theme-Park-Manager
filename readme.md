@@ -29,3 +29,15 @@ The key functions of AAD are:
 - resolveFaults(): This is called to "fix" all OUT_OF_ORDER vehicles and return them to storage with the other vehicles that are not currently running on the track
 
 - addVehicle(): Moves a vehicle from storage to the track
+
+## Key Technologies
+This system is made possible thanks to the following technologies:
+- [Spring Boot](https://github.com/spring-projects/spring-boot) providing REST APIs between the attractions and the ParkManager, and between the ParkManager and client
+- [GraphQL](https://github.com/graphql) allowing clients to query specific information from the ParkManager
+- [Netflix Eureka](https://github.com/Netflix/eureka) allows attractions to register with the ParkManager without having to worry about manually configuring attraction URLs
+- [Docker](https://github.com/docker) allows for containerizing all the attractions and ParkManager
+
+## Running the test environment
+Run [deploy-and-run.sh](deploy-and-run.sh) to automatically build all of the projects, create Docker containers, and start the ParkManager instance as well as three rollercoaster instances. The ParkManager can then be accessed at `http://localhost:8080/` and attractions can be accessed at `http://localhost:8080/attractions`
+
+**Note:** it may take a few moments for ParkManager to discover the attractions once everything is started.

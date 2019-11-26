@@ -1,0 +1,19 @@
+version: '3'
+services:
+  parkmanager:
+    build: parkmanager
+    image: "parkmanager:latest"
+    ports:
+    - "8080:8080"
+  spacemtn:
+    command: sh -c "sleep 7 && java -jar rollercoaster.jar configs/SPACEMTN.yml --eureka.client.serviceUrl.defaultZone=http://parkmanager:8080/eureka/"
+    build: rollercoaster
+    image: "rollercoaster:latest"
+  thundermtn:
+    command: sh -c "sleep 7 && java -jar rollercoaster.jar configs/THUNDERMTN.yml --eureka.client.serviceUrl.defaultZone=http://parkmanager:8080/eureka/"
+    build: rollercoaster
+    image: "rollercoaster:latest"
+  splashmtn:
+    command: sh -c "sleep 7 && java -jar rollercoaster.jar configs/SPLASHMTN.yml --eureka.client.serviceUrl.defaultZone=http://parkmanager:8080/eureka/"
+    build: rollercoaster
+    image: "rollercoaster:latest"

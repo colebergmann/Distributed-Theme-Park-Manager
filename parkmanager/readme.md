@@ -15,6 +15,8 @@ I highly recommend downloading [GraphQL Playground](https://github.com/prisma-la
 
 There are two functions: `attractions` and `attractionById(id: ID)`. Like the REST interface, attractions returns all AttractionDetails and attractionById returns a single AttractionDetails object.
 
+**Note: The graphql endpoint is at /graphql**
+
 Example query:
 ```
   attractions {
@@ -83,6 +85,5 @@ Use the exact same query format to query a single attraction, but replace the fi
 
 
 ### todo:
-- Error handling
 - Service discovery with Eureka
 - more ride suggestions

@@ -1,0 +1,26 @@
+attractionName: "Indiana Jones"
+attractionId: "IJONES"
+
+# Total number of vehicles for this ride
+vehicleCount: 20
+
+# Ride duration in seconds
+rideDuration: 180
+
+# Amount of passengers this ride can support using one ride vehicle per hour
+passengersPerCarPerHour: 240
+
+# Amount of passengers each car can handle
+passengersPerCar: 12
+
+# Max ride speed in km/h
+maxSpeed: 38
+
+# Amount of loops
+loops: 1
+
+# Height requirement for this ride (in meters)
+heightRequired: 0.8
+
+# Amount of time to load/unload a ride vehicle on average (in seconds)
+loadTime: 35
