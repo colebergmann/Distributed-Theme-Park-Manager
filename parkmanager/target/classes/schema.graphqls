@@ -10,6 +10,7 @@ type AttractionDetails {
   status: AttractionStatus
 
   events: [String!]!
+  suggestions: [String!]!
 
   vehicleFillRate: Float
   vehiclesInService: Int

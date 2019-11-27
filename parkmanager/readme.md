@@ -19,6 +19,7 @@ There are two functions: `attractions` and `attractionById(id: ID)`. Like the RE
 
 Example query:
 ```
+{
   attractions {
     attributes {
       attractionName
@@ -40,7 +41,9 @@ Example query:
         stage
       }
     }
+    waitMins
     events
+    suggestions
     vehicleFillRate
     vehiclesInService
     vehiclesInStorage
