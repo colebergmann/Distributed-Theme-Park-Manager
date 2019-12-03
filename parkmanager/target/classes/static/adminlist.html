@@ -116,10 +116,7 @@
         let suggestionCount = attraction.suggestions.length
         var html = '<div class="statusrow" onclick="window.location.href = \'attraction.html?' + attraction.attributes.attractionId + '\'";>'
            html += '<i class="fas fa-times-circle red"></i> ' + attraction.attributes.attractionName
-           html += '<div class="info-badges">'
-           html += '<span class="badge badge-secondary">' + attraction.waitMins + ' mins</span>'
-           html += '</div></br>';
-           html += '<div class="warning-text red">' + attraction.status.faultMessage + '</div></div>'
+           html += '</br><div class="warning-text red">' + attraction.status.faultMessage + '</div></div>'
         return html;
       }
 

@@ -21,7 +21,7 @@ services:
     command: sh -c "sleep 7 && java -jar rollercoaster.jar configs/IJONES.yml --eureka.client.serviceUrl.defaultZone=http://parkmanager:8080/eureka/"
     build: rollercoaster
     image: "rollercoaster:latest"
-  ijones:
+  tcoaster:
     command: sh -c "sleep 7 && java -jar rollercoaster.jar configs/TCOASTER.yml --eureka.client.serviceUrl.defaultZone=http://parkmanager:8080/eureka/"
     build: rollercoaster
     image: "rollercoaster:latest"

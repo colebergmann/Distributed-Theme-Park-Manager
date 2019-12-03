@@ -26,4 +26,4 @@ heightRequired: 0.8
 loadTime: 12
 
 # Percentage of ticks that result in the ride breaking down
-failureRate: 1
+failureRate: 0.3

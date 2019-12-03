@@ -71,7 +71,6 @@ public class RCDriver extends AbstractAttractionDriver {
 
         // Randomly simulate a fault with a ride vehicle
         double randomNum = Math.random() * 100;
-        System.out.println("[RCDriver] Random fault: " + randomNum + " / " + attributes.getFailureRate());
         if (randomNum <= attributes.getFailureRate() && attributes.getFailureRate() != 0) {
             simulateFault(getNextValidVehicleIndex(j));
         }
