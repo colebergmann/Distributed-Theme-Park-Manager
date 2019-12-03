@@ -3,6 +3,9 @@ The Park Manager Service is responsible for all communication to the attractions
 
 Services are automatically discovered with Netflix Eureka.
 
+### Web Interface
+The Park Manager Service also hosts a web interface that park administrators and park guests can use to view the attraction statuses. Read more at [webinterface.md](webinterface.md)
+
 ## REST Operations
 The following REST endpoints are supported:
 - GET /attractions: returns a VERY DETAILED list of AttractionDetails objects. Use GraphQL queries so you have less data to deal with
@@ -85,7 +88,3 @@ Use the exact same query format to query a single attraction, but replace the fi
       attractionName
 ...
 ```
-
-
-### todo:
-- more ride suggestions?
