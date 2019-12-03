@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Customer Attractions List</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Tayto Park</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="adminlist.html">Admin View <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Customer View  <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <div class="list-head">
+        <h1>Customer Attraction List</h1>
+      </div>
+      <div class="container" id="attractionlist">
+        <!-- Auto populated by JS -->
+      </div>
+    </main>
+    <!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+    <script>
+      $( document ).ready(function() {
+        console.log( "Page loaded" );
+        refreshTable();
+        setInterval( refreshTable , 1000 );
+      });
+
+      function refreshTable() {
+        fetch('http://localhost:8080/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({query: "{attractions {status{stage} waitMins attributes { attractionName rideDuration maxSpeed loops heightRequired }}}"})
+        }).then(r => r.json())
+        .then(data => {
+          let attractions = data.data.attractions
+          let html = ""
+          if (attractions.length == 0) {
+            html += 'No attractions have been discovered by the Park Manager service'
+          }
+          attractions.forEach(attraction => {
+            html += getAttractionHTML(attraction);
+          });
+          document.getElementById("attractionlist").innerHTML = html;
+        });
+      }
+
+      function getAttractionHTML(attraction) {
+        var html = "";
+        html += '<div class="statusrow">';
+        
+        if (attraction.status.stage == "DOWN") {
+          html += '    <i class="fas fa-exclamation-circle orange"></i>' + attraction.attributes.attractionName + '<br>';
+          html += '    <div class="warning-text orange">This ride is temporarily closed</div>';
+        } else {
+          html += '    <i class="fas fa-check-circle green"></i>' + attraction.attributes.attractionName + '<div class="info-badges"><span class="badge badge-secondary">' + attraction.waitMins + ' mins</span></div><br>';
+        }
+        html += '    <div class="row">';
+        html += '        <div class="col-sm">';
+        html += '          <span style="font-weight: 500;">Ride Duration</span>';
+        html += '          <span style="float: right;">' + attraction.attributes.rideDuration + 's</span>';
+        html += '        </div>';
+        html += '        <div class="col-sm">';
+        html += '          <span style="font-weight: 500;">Height Requirement</span>';
+        html += '          <span style="float: right;">' + attraction.attributes.heightRequired + 'm</span>';
+        html += '        </div>';
+        html += '      </div>';
+        html += '      <div class="row">';
+        html += '          <div class="col-sm">';
+        html += '              <span style="font-weight: 500;">Max Speed</span>';
+        html += '             <span style="float: right;">' + attraction.attributes.maxSpeed + 'km/s</span>';
+        html += '          </div>';
+        html += '          <div class="col-sm">';
+        html += '              <span style="font-weight: 500;">Loops</span>';
+        html += '              <span style="float: right;">' + attraction.attributes.loops + '</span>';
+        html += '          </div>';
+        html += '        </div>';
+        html += '    </div>';
+        return html;
+      }
+    </script>
+</html>

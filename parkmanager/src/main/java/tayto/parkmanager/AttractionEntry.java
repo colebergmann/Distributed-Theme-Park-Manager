@@ -117,6 +117,7 @@ public class AttractionEntry {
             String requestUrl = endpoint + "/action/" + action;
             String result = template.getForObject(requestUrl, String.class);
             events.add("Executed action: " + action);
+            System.out.println("[ParkManager-AttractionEntry] [" + attributes.getAttractionId() + "] Executed action on remote instance: " + action);
             return result;
         } catch (Exception e) {
             e.printStackTrace();

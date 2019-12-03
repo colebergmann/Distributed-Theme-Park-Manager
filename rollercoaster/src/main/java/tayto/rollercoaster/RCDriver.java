@@ -70,8 +70,8 @@ public class RCDriver extends AbstractAttractionDriver {
         idleVehicle.setStage(VehicleStage.IDLE);
 
         // Randomly simulate a fault with a ride vehicle
-        int random = (int) Math.round(Math.random() * 15);
-        if (random == 2) {
+        double randomNum = Math.random() * 100;
+        if (randomNum <= attributes.getFailureRate() && attributes.getFailureRate() != 0) {
             simulateFault(getNextValidVehicleIndex(j));
         }
     }
@@ -103,10 +103,13 @@ public class RCDriver extends AbstractAttractionDriver {
     public void resolveFaults() {
         ArrayList<Vehicle> vehicles = RCDriver.getInstance().status.getRideVehicles();
         for (int i = 0; i < vehicles.size(); i++) {
-            if (vehicles.get(i).getStage() == VehicleStage.OUT_OF_ORDER) {
+            if (vehicles.get(i).getStage() == VehicleStage.OUT_OF_ORDER || vehicles.get(i).getStage() == VehicleStage.BREAKDOWN) {
+                vehicles.get(i).setSeatsOccupied(0);
+                vehicles.get(i).setUuid(null);
                 vehicles.get(i).setStage(VehicleStage.STORED);
                 RCDriver.getInstance().status.setFaultMessage(null);
                 RCDriver.getInstance().status.setStage(AttractionStage.OPERATIONAL);
+                RCDriver.getInstance().tickPaused = false;
             }
         }
         System.out.println("[RCDriver] Resolved faults");

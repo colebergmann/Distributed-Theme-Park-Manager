@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Attraction</title>
+     <!-- Bootstrap core CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!-- FontAwesome CDN -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Tayto Park</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="adminlist.html">Admin View <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="userlist.html">Customer View</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <div class="details-header">
+          <h1 id="ride-name-header"><span id="header-name"></span> <span class="badge badge-secondary float-right" id="hero-mins" style="font-size: 0.6em;"></span></h1>
+          <i class="fas fa-exclamation-circle orange" id="status-icon"></i> <div id="status-message" style="display: inline-block;"></div>
+          <div class="action-buttons float-right">
+              <button type="button" class="btn btn-info" onclick="addVehicle();">Add Vehicle</button>
+              <button type="button" class="btn btn-secondary" onclick="dismissFault();">Dismiss Fault</button>
+              <button type="button" class="btn btn-secondary" onclick="repairVehicles();">Repair OOO Vehicles</button>
+          </div>
+      </div>
+      <h2 class="section-title">
+        Status
+      </h2>
+      <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <td class="table-title">Stage</td>
+                            <td class="table-value" id="status-stage"></td>
+                          </tr>
+                          <tr>
+                            <td class="table-title">Passengers in line</td>
+                            <td class="table-value" id="status-pinline"></td>
+                          </tr>
+                          <tr>
+                            <td class="table-title">Current Capacity</td>
+                            <td class="table-value" id="status-currentcap"></td>
+                          </tr>
+                          <tr>
+                            <td class="table-title">Potential Capacity</td>
+                            <td class="table-value" id="status-potentialcap"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="col-sm">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <td class="table-title">Vehicle Fill Rate</td>
+                            <td class="table-value" id="status-fillrate"></td>
+                          </tr>
+                          <tr>
+                            <td class="table-title">Active Vehicles</td>
+                            <td class="table-value" id="status-activevehicles"></td>
+                          </tr>
+                          <tr>
+                            <td class="table-title">Operational Vehicles in Storage</td>
+                            <td class="table-value" id="status-opinstorage"></td>
+                          </tr>
+                          <tr>
+                              <td class="table-title">Vehicles Requiring Repair</td>
+                              <td class="table-value" id="status-brokeninstorage"></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+      </div>
+
+      <h2 class="section-title">
+          Suggestions
+        </h2>
+        <div class="container">
+            <table class="table">
+                <tbody id="suggestions-tbody">
+                </tbody>
+              </table>
+            </div>
+
+          <h2 class="section-title">
+              Attributes
+            </h2>
+            <div class="container">
+                  <div class="row">
+                      <div class="col-sm">
+                          <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td class="table-title">Attraction Name</td>
+                                  <td class="table-value" id="attribute-name"></td>
+                                </tr>
+                                <tr>
+                                  <td class="table-title">Attraction ID</td>
+                                  <td class="table-value" id="attribute-id"></td>
+                                </tr>
+                                <tr>
+                                  <td class="table-title">Ride Duration</td>
+                                  <td class="table-value" id="attribute-duration"></td>
+                                </tr>
+                                <tr>
+                                  <td class="table-title">Passengers Per Hour Per Vehicle</td>
+                                  <td class="table-value" id="attribute-pphpv"></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-title">Passengers Per Vehicle</td>
+                                    <td class="table-value" id="attribute-pph"></td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                      </div>
+                      <div class="col-sm">
+                          <table class="table">
+                              <tbody>
+                                  <tr>
+                                      <td class="table-title">Max Speed</td>
+                                      <td class="table-value" id="attribute-speed"></td>
+                                    </tr>
+                                <tr>
+                                  <td class="table-title">Loops</td>
+                                  <td class="table-value" id="attribute-loops"></td>
+                                </tr>
+                                <tr>
+                                  <td class="table-title">Height Required</td>
+                                  <td class="table-value" id="attribute-height"></td>
+                                </tr>
+                                <tr>
+                                  <td class="table-title">Load Time</td>
+                                  <td class="table-value" id="attribute-loadtime"></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-title">Vehicle Count</td>
+                                    <td class="table-value" id="attribute-vcount"></td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                      </div>
+                    </div>
+            </div>
+
+
+            <h2 class="section-title">
+                Events
+              </h2>
+              <div class="container">
+                  <table class="table">
+                      <tbody id="events-tbody">
+                      </tbody>
+                    </table>
+              </div>
+
+
+            <h2 class="section-title">
+                Ride Vehicles
+              </h2>
+              <div class="container">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Stage</th>
+                          <th scope="col">Seats Occupied</th>
+                          <th scope="col">Session UUID</th>
+                        </tr>
+                      </thead>
+                      <tbody id="vehicles-tbody">
+                      </tbody>
+                    </table>
+              </div>
+
+    </main>
+    <!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+
+    <script>
+      var ppcph = 0;
+      var ride_id = window.location.search.substr(1)
+      console.log(ride_id)
+
+      $( document ).ready(function() {
+        console.log( "Page loaded" );
+        loadStaticInfo();
+        //refreshTable();
+        setInterval( refreshData , 1000 );
+      });
+
+      function loadStaticInfo() {
+        // Load in the static data
+        fetch('http://localhost:8080/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({query: "{attractionById(id: \"" + ride_id + "\") { attributes { attractionName attractionId rideDuration passengersPerCarPerHour passengersPerCar maxSpeed loops heightRequired loadTime vehicleCount }}}"})
+        }).then(r => r.json())
+        .then(data => {
+          if (data.data.attractionById == null) {
+            alert("Error: This ride does not exist!");
+            return;
+          }
+          let attractions = data.data.attractionById.attributes;
+
+          // Fill in the HTML
+          document.getElementById(id="attribute-name").innerHTML = attractions.attractionName;
+          document.getElementById(id="attribute-id").innerHTML = attractions.attractionId;
+          document.getElementById(id="attribute-duration").innerHTML = attractions.rideDuration + "s";
+          document.getElementById(id="attribute-pphpv").innerHTML = attractions.passengersPerCarPerHour;
+          document.getElementById(id="attribute-pph").innerHTML = attractions.passengersPerCar;
+
+          document.getElementById(id="attribute-speed").innerHTML = attractions.maxSpeed + "km/h";
+          document.getElementById(id="attribute-loops").innerHTML = attractions.loops;
+          document.getElementById(id="attribute-height").innerHTML = attractions.heightRequired + "m";
+          document.getElementById(id="attribute-loadtime").innerHTML = attractions.loadTime + "s";
+          document.getElementById(id="attribute-vcount").innerHTML = attractions.vehicleCount;
+
+          document.getElementById(id="header-name").innerHTML = attractions.attractionName;
+          ppcph = attractions.passengersPerCarPerHour
+
+          // Start updating the status variables
+          refreshData();
+        });
+      }
+
+      function refreshData() {
+        fetch('http://localhost:8080/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({query: "{attractionById(id: \"" + ride_id + "\") {status{ stage passengersInLine faultMessage rideVehicles{ stage seatsOccupied uuid  } } waitMins events suggestions vehicleFillRate vehiclesInService vehiclesInStorage totalBrokenVehicles } }"})
+        }).then(r => r.json())
+        .then(data => {
+          let attraction = data.data.attractionById;
+
+          //handle events
+          var eventHTML = "";
+          for (var i = 0; i < attraction.events.length ; i++) {
+            eventHTML += "<tr><td>" +  attraction.events[attraction.events.length - i - 1]  + "</td></tr>";
+          }
+          if (attraction.events.length == 0) {
+            eventHTML += "<tr><td>No events to display</td></tr>";
+          }
+          document.getElementById("events-tbody").innerHTML = eventHTML;
+
+          //handle suggestions
+          var suggestionHTML = "";
+          for (var i = 0; i < attraction.suggestions.length ; i++) {
+            suggestionHTML += "<tr><td>" +  attraction.suggestions[attraction.suggestions.length - i - 1]  + "</td></tr>";
+          }
+          if (attraction.suggestions.length == 0) {
+            suggestionHTML += "<tr><td>No suggestions to display</td></tr>";
+          }
+          document.getElementById("suggestions-tbody").innerHTML = suggestionHTML;
+
+          //handle vehicles
+          var vehicleHTML = "";
+          for (var i = 0; i < attraction.status.rideVehicles.length ; i++) {
+            vehicleHTML += "<tr><td>" +  i  + "</td>";
+            vehicleHTML += "<td>" +  attraction.status.rideVehicles[i].stage  + "</td>";
+            vehicleHTML += "<td>" +   attraction.status.rideVehicles[i].seatsOccupied  + "</td>";
+            vehicleHTML += "<td>" +   attraction.status.rideVehicles[i].uuid  + "</td></tr>";
+          }
+          document.getElementById("vehicles-tbody").innerHTML = vehicleHTML;
+
+          // Handle other static data fields
+          let stage = attraction.status.stage;
+          document.getElementById("status-stage").innerHTML = stage;
+          document.getElementById("status-pinline").innerHTML = attraction.status.passengersInLine;
+          document.getElementById("status-currentcap").innerHTML = ppcph * attraction.vehiclesInService + " Passengers/hr"
+          document.getElementById("status-potentialcap").innerHTML = ppcph * (attraction.vehiclesInService + attraction.vehiclesInStorage) + " Passengers/hr"
+          
+
+          document.getElementById("status-fillrate").innerHTML = attraction.vehicleFillRate + "%"
+          document.getElementById("status-activevehicles").innerHTML = attraction.vehiclesInService
+          document.getElementById("status-opinstorage").innerHTML = attraction.vehiclesInStorage
+          document.getElementById("status-brokeninstorage").innerHTML = attraction.totalBrokenVehicles
+
+          // Update status subtext
+          //TODO: update the icon 
+          if (stage == "OPERATIONAL") {
+            document.getElementById("status-message").innerHTML = "Operational - All systems look great";
+            document.getElementById("hero-mins").innerHTML = attraction.waitMins + " mins"
+            document.getElementById("status-icon").className = "fas fa-check-circle green"
+          } else if (stage == "DEGRADED") {
+            document.getElementById("status-message").innerHTML = "Degraded - " + attraction.status.faultMessage;
+            document.getElementById("hero-mins").innerHTML = attraction.waitMins + " mins"
+            document.getElementById("status-icon").className = "fas fa-exclamation-circle orange"
+          } else if (stage == "DOWN") {
+            document.getElementById("status-message").innerHTML = "DOWN - " + attraction.status.faultMessage;
+            document.getElementById("hero-mins").innerHTML = "Fault"
+            document.getElementById("status-icon").className = "fas fa-times-circle red"
+          }
+
+        });
+      }
+
+      function addVehicle() {
+        sendAction("addvehicle");
+      }
+
+      function dismissFault() {
+        sendAction("dismissfault");
+      }
+      
+      function repairVehicles() {
+        sendAction("resolvefaults");
+      }
+
+      function sendAction(action) {
+        console.log("sending action " + action);
+
+        fetch('http://localhost:8080/attractions/' + ride_id + '/action/' + action, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: null
+        })
+        .then(data => {
+          console.log(data);
+        });
+      }
+
+
+    </script>
+</html>
