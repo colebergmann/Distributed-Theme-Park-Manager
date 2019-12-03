@@ -24,3 +24,6 @@ heightRequired: 1.02
 
 # Amount of time to load/unload a ride vehicle on average (in seconds)
 loadTime: 10
+
+# Percentage of ticks that result in the ride breaking down
+failureRate: 5.5

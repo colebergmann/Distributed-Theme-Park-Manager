@@ -1,0 +1,29 @@
+attractionName: "Tayto Coaster"
+attractionId: "TCOASTER"
+
+# Total number of vehicles for this ride
+vehicleCount: 8
+
+# Ride duration in seconds
+rideDuration: 192
+
+# Amount of passengers this ride can support using one ride vehicle per hour
+passengersPerCarPerHour: 260
+
+# Amount of passengers each car can handle
+passengersPerCar: 10
+
+# Max ride speed in km/h
+maxSpeed: 77
+
+# Amount of loops
+loops: 4
+
+# Height requirement for this ride (in meters)
+heightRequired: 1.4
+
+# Amount of time to load/unload a ride vehicle on average (in seconds)
+loadTime: 25
+
+# Percentage of ticks that result in the ride breaking down
+failureRate: 0

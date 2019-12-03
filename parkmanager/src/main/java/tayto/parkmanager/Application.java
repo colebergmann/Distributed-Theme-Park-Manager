@@ -27,6 +27,7 @@ public class Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/graphql").allowedOrigins("*");
+                registry.addMapping("/attractions").allowedOrigins("*");
             }
         };
     }

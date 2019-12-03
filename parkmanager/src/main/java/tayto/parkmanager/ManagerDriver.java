@@ -56,6 +56,7 @@ public class ManagerDriver {
             return;
         }
         attractions.put(id, attraction);
+        System.out.println("[ManagerDriver] Registered new attraction: " + attraction.attributes.getAttractionId());
     }
 
     public Collection<AttractionDetails> getAttractionDetails() {

@@ -15,6 +15,7 @@ public class AttractionAttributes {
     private double heightRequired;                      // Required height to ride the attraction
     private int loadTime;                               // Average time required to load a ride vehicle
     private int vehicleCount;                           // Total number of vehicles build for this attraction
+    private double failureRate;                         // Percentage of ticks that result in the ride breaking down
 
     /* Java Bean */
     public AttractionAttributes() { }
@@ -97,5 +98,13 @@ public class AttractionAttributes {
 
     public void setVehicleCount(int vehicleCount) {
         this.vehicleCount = vehicleCount;
+    }
+
+    public double getFailureRate() {
+        return failureRate;
+    }
+
+    public void setFailureRate(double failureRate) {
+        this.failureRate = failureRate;
     }
 }

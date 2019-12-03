@@ -1,0 +1,71 @@
+body {
+  padding-top: 5rem;
+}
+.list-head {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.statusrow {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  display: block;
+  background-color: #ededed;
+  padding: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.green {
+  color: green;
+  padding-right: 5px;
+}
+
+.orange {
+  color: darkorange;
+  padding-right: 5px;
+}
+
+.red {
+  color: red;
+  padding-right: 5px;
+}
+
+.info-badges {
+  font-size: 0.8em;
+  float: right;
+}
+
+.warning-text {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.details-header {
+  display: block;
+  background-color: #ededed;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 1.4em;
+  padding-bottom: 65px;
+}
+
+.action-buttons {
+  padding-top: 10px;
+  
+}
+
+.section-title {
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.table-title {
+  font-weight: 600;
+}
+
+.table-value {
+  text-align: right;
+  display:block;
+}
