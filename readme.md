@@ -38,6 +38,6 @@ This system is made possible thanks to the following technologies:
 - [Docker](https://github.com/docker) allows for containerizing all the attractions and ParkManager
 
 ## Running the test environment
-Run [deploy-and-run.sh](deploy-and-run.sh) to automatically build all of the projects, create Docker containers, and start the ParkManager instance as well as three rollercoaster instances. The ParkManager can then be accessed at `http://localhost:8080/` and attractions can be accessed at `http://localhost:8080/attractions`
+Run [deploy-and-run.sh](deploy-and-run.sh) to automatically build all of the projects, create Docker containers, and start the ParkManager instance as well as three rollercoaster instances. The ParkManager can then be accessed at `http://localhost:8080/` and the web interface can be accessed at `http://localhost:8080/adminlist.html`
 
 **Note:** it may take a few moments for ParkManager to discover the attractions once everything is started.
