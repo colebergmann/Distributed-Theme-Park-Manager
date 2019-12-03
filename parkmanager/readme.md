@@ -3,8 +3,8 @@ The Park Manager Service is responsible for all communication to the attractions
 
 Services are automatically discovered with Netflix Eureka.
 
-### Web Interface
-The Park Manager Service also hosts a web interface that park administrators and park guests can use to view the attraction statuses. Read more at [webinterface.md](webinterface.md)
+## Web Interface
+The Park Manager Service hosts a web interface that park administrators and park guests can use to view the attraction statuses. Read more at [webinterface.md](webinterface.md)
 
 ## REST Operations
 The following REST endpoints are supported:

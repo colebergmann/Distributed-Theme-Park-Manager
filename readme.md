@@ -6,7 +6,7 @@ This system is composed of two main components: several independent attractions 
 ## Park Manager Overview
 The Park Manager discovers attractions using Netflix Eureka and polls the attractions frequently to store their current state (and log changes). The PM supports both REST and GraphQL queries to get information about the attractions (more info on the [parkmanager](parkmanager) page).
 
-PM is also responsible for issuing commands to the individual attraction services.
+PM is also responsible for issuing commands to the individual attraction services and hosts a web interface that park administrators and park guests can use to view the attraction statuses. Read more at [parkmanager/webinterface.md](parkmanager/webinterface.md)
 
 ## Attraction Overview
 AttractionAttributes stores all the static ride data (id, name, # vehicles, passengers/hr, etc). This is accessed at [/attributes](sample/attributes.json)
